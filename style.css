@@ -16,7 +16,7 @@ button, input {
 }
 
 #sketchboard {
-    height: max(300px, 65%);
+    height: max(300px, 80vmin);
     aspect-ratio: 1;
     background-color: grey;
     display: grid;
