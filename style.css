@@ -46,6 +46,12 @@ button, input {
     margin: 20px;
 }
 
-#btn-container button {
+#btn-container > button:hover {
     cursor: pointer;
+    background-color: rgba(220,255,255,.6);
+}
+
+.colours {
+    display: flex;
+    gap: 5px;
 }
