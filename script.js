@@ -2,6 +2,7 @@ const sketchboard = document.getElementById("sketchboard");
 const input = document.getElementById("sketchSize")
 const generateBtn = document.getElementById("generate");
 const resetBtn = document.getElementById("reset");
+const fillBtn = document.getElementById("fill");
 
 const clearBorders = document.getElementById("clear-borders");
 let bordersClear = false;
@@ -55,6 +56,7 @@ resetBtn.addEventListener("click", function() {
 })
 
 allColourBtns.addEventListener("click", function(e) {
+    console.log(e.target.id);
     if (e.target.id == "red") {
     colour = "red";
     } else if (e.target.id == "blue") {
@@ -71,8 +73,16 @@ allColourBtns.addEventListener("click", function(e) {
         colour = "white";
     } else if (e.target.id == "black") {
         colour = "black";
+    } else if (e.target.id == "j-cole") {
+        colour = "yellow";
     }
 })
+
+fillBtn.addEventListener("click", function() {
+    sketchboard.querySelectorAll(".block").forEach(function (block) {
+        block.style.backgroundColor = colour;
+    });
+});
 
 // Colour changer
 
