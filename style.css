@@ -36,6 +36,8 @@ button, input {
 }
 
 .block {
+    background-repeat: no-repeat;
+    background-size: contain;
     background-color: white;
     border: 1px solid black;
     aspect-ratio: 1;
@@ -55,14 +57,14 @@ button, input {
     background-color: rgba(220,255,255,.6);
 }
 
-.colours {
+.colours-sect {
     display: flex;
     gap: 5px;
     align-items: center;
     justify-content: center;
 }
 
-#colours-container {
+.colours {
     display: flex;
     flex-direction: column;
     align-items: center;

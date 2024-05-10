@@ -74,12 +74,57 @@ allColourBtns.addEventListener("click", function(e) {
     } else if (e.target.id == "black") {
         colour = "black";
     } else if (e.target.id == "j-cole") {
-        colour = "yellow";
+        colour = "j-cole";
+    } else if (e.target.id == "drake") {
+        colour = "drake";
+    } else if (e.target.id == "kendrick") {
+        colour = "kendrick";
     }
-})
+});
+
+function rappersBlock(e) {
+    if (colour == "j-cole") {
+        document.getElementById(e.target.id).style.background = "url('./src/j-cole.jpeg')";
+    } else if (colour == "drake") {
+        document.getElementById(e.target.id).style.background = "url('./src/drake.jpeg')";
+    } else if (colour == "kendrick") {
+        document.getElementById(e.target.id).style.background = "url('./src/kendrick.jpeg')";
+    }
+    sketchboard.querySelectorAll(".block").forEach(function(block) {
+        block.style.backgroundRepeat = "no-repeat";
+        block.style.backgroundSize = "contain";
+    });
+}
+
+function rappersFill() {
+    if (colour == "j-cole") {
+        sketchboard.querySelectorAll(".block").forEach(function(block) {
+            block.style.backgroundColor = "";
+            block.style.background = "url('./src/j-cole.jpeg')";
+            block.style.backgroundRepeat = "no-repeat";
+            block.style.backgroundSize = "contain";
+        });
+    } else if (colour == "drake") {
+        sketchboard.querySelectorAll(".block").forEach(function(block) {
+            block.style.backgroundColor = "";
+            block.style.background = "url('./src/drake.jpeg')";
+            block.style.backgroundRepeat = "no-repeat";
+            block.style.backgroundSize = "contain";
+        });
+    } else if (colour == "kendrick") {
+        sketchboard.querySelectorAll(".block").forEach(function(block) {
+            block.style.backgroundColor = "";
+            block.style.background = "url('./src/kendrick.jpeg')";
+            block.style.backgroundRepeat = "no-repeat";
+            block.style.backgroundSize = "contain";
+        });
+    }
+}
 
 fillBtn.addEventListener("click", function() {
+    if (colour == "j-cole" || colour == "drake" || colour == "kendrick") return rappersFill();
     sketchboard.querySelectorAll(".block").forEach(function (block) {
+        block.style.background = "none";
         block.style.backgroundColor = colour;
     });
 });
@@ -87,6 +132,7 @@ fillBtn.addEventListener("click", function() {
 // Colour changer
 
 sketchboard.addEventListener("click", function(e) {
+    if (colour == "j-cole" || colour == "drake" || colour == "kendrick") return rappersBlock(e);
     document.getElementById(e.target.id).style.backgroundColor = colour;
 });
 
