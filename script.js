@@ -57,6 +57,7 @@ resetBtn.addEventListener("click", function() {
 
 allColourBtns.addEventListener("click", function(e) {
     console.log(e.target.id);
+    document.getElementById(e.target.id).style.background = "none";
     if (e.target.id == "red") {
     colour = "red";
     } else if (e.target.id == "blue") {
@@ -131,9 +132,36 @@ fillBtn.addEventListener("click", function() {
 
 // Colour changer
 
-sketchboard.addEventListener("click", function(e) {
+// sketchboard.addEventListener("click", function(e) {
+//     if (colour == "j-cole" || colour == "drake" || colour == "kendrick") return rappersBlock(e);
+//     document.getElementById(e.target.id).style.backgroundColor = colour;
+// });
+
+// Drag
+let isDown = false;
+
+sketchboard.addEventListener("mouseup", function() {
+    isDown = false;
+});
+
+sketchboard.addEventListener("mousedown", function(e) {
+    console.log(e.target.id);
     if (colour == "j-cole" || colour == "drake" || colour == "kendrick") return rappersBlock(e);
     document.getElementById(e.target.id).style.backgroundColor = colour;
+    if (!isDown) {
+        isDown = true;
+        if (!isDown) return;
+    }
+});
+
+sketchboard.addEventListener("mouseover", function(e) {
+    if (!isDown) return;
+    if (colour == "j-cole" || colour == "drake" || colour == "kendrick") return rappersBlock(e);
+    document.getElementById(e.target.id).style.backgroundColor = colour;
+});
+
+sketchboard.addEventListener("mouseup", function() {
+    isDown = false;
 });
 
 // input.addEventListener("keyDown", function(e) {
